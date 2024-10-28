@@ -11,7 +11,7 @@ export const CounterWithHTTP = () => {
     const handleIncrement = async () => {
         const id = uuidv4()
         try {
-            const response = await axios.post("http://localhost:5000/api/counter-json-rpc", {
+            const response = await axios.post("http://localhost:9001/api/counter-json-rpc", {
                 method: "increment",
                 id,
                 params: {value: count}
@@ -26,7 +26,7 @@ export const CounterWithHTTP = () => {
     const handleDecrement = async () => {
         const id = uuidv4()
         try {
-            const response = await axios.post("http://localhost:5000/api/counter-json-rpc", {
+            const response = await axios.post("http://localhost:9001/api/counter-json-rpc", {
                 method: "decrement",
                 id,
                 params: {value: count}
@@ -41,7 +41,7 @@ export const CounterWithHTTP = () => {
     const handleReset = async () => {
         const id = uuidv4()
         try {
-            const response = await axios.post("http://localhost:5000/api/counter-json-rpc", {
+            const response = await axios.post("http://localhost:9001/api/counter-json-rpc", {
                 method: "reset",
                 id,
                 params: {value: count}
