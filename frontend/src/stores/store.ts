@@ -1,11 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit";
-import counterReduxOnlyReducer from "./counterReduxOnlySlice"
-import counterWithHTTPReducer from "./counterWithHTTPSlice"
+import counterReduxOnlyReducer from "./counterReduxOnlySlice";
+import counterWithHTTPReducer from "./counterWithHTTPSlice";
+import counterWithWebSocketReducer from "./counterWithWebSocketSlice";
 
 export const store = configureStore({
     reducer: {
         counterReduxOnly: counterReduxOnlyReducer,
-        counterWithHTTP: counterWithHTTPReducer
+        counterWithHTTP: counterWithHTTPReducer,
+        counterWithWebSocket: counterWithWebSocketReducer
     },
 })
 
