@@ -1,32 +1,37 @@
 import './App.css'
 import {Provider} from "react-redux";
 import {store} from "./stores/store.ts";
-import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {CounterWithReduxOnly} from "./components/CounterWithReduxOnly.tsx";
 import {CounterWithHTTP} from "./components/CounterWithHTTP.tsx";
 import {CounterWithWebSocket} from "./components/CounterWithWebSocket.tsx";
+import {NavLinkCustom} from "./components/NavLinkCustom.tsx";
+
+
+const NAVIGATION_ELEMENTS = [
+    {path: "/", name: "Redux only", element: <CounterWithReduxOnly/>},
+    {path: "/with-http", name: "With HTTP", element: <CounterWithHTTP/>},
+    {path: "/with-websocket", name: "With WebSocket", element: <CounterWithWebSocket/>},
+]
 
 function App() {
-
-    const addStyleWhenLinkActive = (isActive: boolean) => {
-        return isActive ? "font-bold" : ""
-    }
-
     return (
         <Provider store={store}>
             <BrowserRouter>
                 <nav className="bg-gray-700 text-white p-3">
                     <ul className="flex space-x-4 justify-center">
-                        <li><NavLink to="/" className={({isActive}) => `hover:underline ${addStyleWhenLinkActive(isActive)}`}>Redux only</NavLink></li>
-                        <li><NavLink to="/with-http" className={({isActive}) => `hover:underline ${addStyleWhenLinkActive(isActive)}`}>With HTTP</NavLink></li>
-                        <li><NavLink to="/with-websocket" className={({isActive}) => `hover:underline ${addStyleWhenLinkActive(isActive)}`}>With Websocket</NavLink></li>
+                        {NAVIGATION_ELEMENTS.map((navEle, index) =>
+                            <li key={`${index}-${navEle.name}`}>
+                                <NavLinkCustom path={navEle.path} name={navEle.name}/>
+                            </li>
+                        )}
                     </ul>
                 </nav>
                 <div className="p-4">
                     <Routes>
-                        <Route path="/" element={<CounterWithReduxOnly/>} />
-                        <Route path="/with-http" element={<CounterWithHTTP/>} />
-                        <Route path="/with-websocket" element={<CounterWithWebSocket/>} />
+                        {NAVIGATION_ELEMENTS.map((navEle, index) =>
+                            <Route key={`${index}-${navEle.name}`} path={navEle.path} element={navEle.element}/>
+                        )}
                     </Routes>
                 </div>
             </BrowserRouter>
