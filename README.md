@@ -19,11 +19,11 @@ You need `nodejs` as prerequisite.
 
 Again, also make sure these ports are available: **3000, 9001, 9002**.
 
-Then navigate to counter-demo-app/backend and run this command:
+Then navigate to `counter-demo-app/backend` and run this command:
 ```
 node ./bin/www
 ```
-Open a new terminal and navigate to counter-demo-app/frontend and run this command:
+Open a new terminal and navigate to `counter-demo-app/frontend` and run this command:
 ```
 npm run dev
 ```
