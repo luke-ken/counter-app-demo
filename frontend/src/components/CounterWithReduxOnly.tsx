@@ -19,11 +19,11 @@ export const CounterWithReduxOnly = () => {
     }
 
     return(
-        <>
-            <h1>{count}</h1>
-            <button onClick={handleIncrement}>Increment</button>
-            <button onClick={handleDecrement}>Decrement</button>
-            <button onClick={handleReset}>Reset</button>
-        </>
+        <div className="p-4 bg-gray-100 shadow-md rounded">
+            <div className="text-2xl font-bold mb-2">Count: {count}</div>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600" onClick={handleIncrement}>Increment</button>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600" onClick={handleDecrement}>Decrement</button>
+            <button className="bg-white text-red-600 px-4 py-2 rounded mr-2 hover:bg-red-100 outline outline-1 outline-red-600" onClick={handleReset}>Reset</button>
+        </div>
     )
 }

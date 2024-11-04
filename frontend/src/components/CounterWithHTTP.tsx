@@ -54,12 +54,13 @@ export const CounterWithHTTP = () => {
     }
 
     return (
-        <>
-            <h1>{count}</h1>
-            <button onClick={handleIncrement}>Increment</button>
-            <button onClick={handleDecrement}>Decrement</button>
-            <button onClick={handleReset}>Reset</button>
-        </>
-
+        <div className="p-4 bg-gray-100 shadow-md rounded flex flex-col items-center space-y-2">
+            <div className="text-2xl font-bold">Count: {count}</div>
+            <div>
+                <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600" onClick={handleIncrement}>Increment</button>
+                <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600" onClick={handleDecrement}>Decrement</button>
+            </div>
+            <button className="bg-white text-red-600 px-4 py-2 rounded mr-2 hover:bg-red-100 outline outline-1 outline-red-600" onClick={handleReset}>Reset</button>
+        </div>
     )
 }
