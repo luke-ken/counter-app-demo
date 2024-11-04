@@ -7,7 +7,7 @@ import {CounterWithHTTP} from "./components/CounterWithHTTP.tsx";
 import {CounterWithWebSocket} from "./components/CounterWithWebSocket.tsx";
 import {NavLinkCustom} from "./components/NavLinkCustom.tsx";
 
-
+// one place to manage all paths, making adding new paths and removing existing paths easier
 const NAVIGATION_ELEMENTS = [
     {path: "/", name: "Redux only", element: <CounterWithReduxOnly/>},
     {path: "/with-http", name: "With HTTP", element: <CounterWithHTTP/>},

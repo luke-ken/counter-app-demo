@@ -11,6 +11,7 @@ export const CounterWithWebSocket = () => {
 
     const ws = useRef<WebSocket | null>(null)
 
+    // manage opening and closing websocket connection upon component mount and unmount, no external dependencies
     useEffect(() => {
         ws.current = new WebSocket("ws://localhost:9002/ws/counter")
 
