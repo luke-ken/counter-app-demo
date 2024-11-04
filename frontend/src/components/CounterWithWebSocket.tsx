@@ -40,21 +40,21 @@ export const CounterWithWebSocket = () => {
     const handleIncrement = () => {
         const id = uuidv4()
         ws.current?.send(
-            JSON.stringify({method: "increment", id: id, params: {value: count}})
+            JSON.stringify({jsonrpc: "2.0", method: "increment", id: id, params: {value: count}})
         )
     }
 
     const handleDecrement = () => {
         const id = uuidv4()
         ws.current?.send(
-            JSON.stringify({method: "decrement", id: id, params: {value: count}})
+            JSON.stringify({jsonrpc: "2.0", method: "decrement", id: id, params: {value: count}})
         )
     }
 
     const handleReset = () => {
         const id = uuidv4()
         ws.current?.send(
-            JSON.stringify({method: "reset", id: id, params: {value: count}})
+            JSON.stringify({jsonrpc: "2.0", method: "reset", id: id, params: {value: count}})
         )
     }
 

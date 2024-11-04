@@ -13,7 +13,7 @@ router.post("/counter-json-rpc", (req, res) => {
         result = 0
     }
 
-    res.json({id, result})
+    res.json({jsonrpc: "2.0", id, result})
 })
 
 module.exports = router

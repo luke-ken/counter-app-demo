@@ -16,7 +16,7 @@ const counterWebSocket = (port) => {
                 result = 0
             }
 
-            ws.send(JSON.stringify({id, result}))
+            ws.send(JSON.stringify({jsonrpc: "2.0", id, result}))
         })
     })
 }
